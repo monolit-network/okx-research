@@ -1,6 +1,6 @@
 # Showcase: real questions, real answers
 
-Nine unedited sessions from the live pipeline (September 2026). Two execution
+Eight unedited sessions from the live pipeline (September 2026). Two execution
 profiles appear below: deep research (Claude Opus planner, 15–25 turns) and
 fast tabular queries (glm-flash, 1–6 turns). Note the built-in **figure check**:
 any number in the answer that does not appear in tool outputs is flagged for
@@ -32,23 +32,7 @@ The cleanest profile is `0xb80d90fc…`: a closed cycle Gate → on-chain purcha
 
 ---
 
-## 2. Which tokens on OKX have the highest OI and volume with potentially manipulative pumping?
-
-*MCP / Claude Opus · 363 s · 17 turns · 15 tool calls (query_cex_normalized, query_cex_aggregates, get_and_calc_cex_technical_analysis)*
-
-Leaders table (OI, ΔOI, volume, Δprice, taker skew) for BTC/ETH/SOL/ZEC/XRP/NEAR/LINK/ONDO/SUI/XPL, then:
-
-**Potentially manipulative pump (high risk):**
-1. **XPL** — volume 7.2x ($35M→$256M), price +15%, but OI only $9.7M: turnover 26× open interest; OI even fell over 4h. Classic churn profile.
-2. **ONDO** — volume 1.95x, price +9%, but taker skew −3.2% (net selling) and OI −10.4% over 4h. Distribution into strength.
-3. **ZEC** — most concentrated OI ($187M), last-hour OI cut −4.7%, price at resistance with 4h RSI 44.7 (bearish divergence).
-4. **SPCX** — OI +15.2% with price exactly flat and falling volume — setup for a squeeze.
-
-**More like continuation:** SOL (shorts liquidated $2.78M vs longs $1.04M, early positioning), LINK (breakout confirmed by volume), SUI, XRP. Long-squeeze risk: NEAR.
-
----
-
-## 3. Who on X Layer got into fresh tokens earliest this week: 5 wallets, entries, average buy size
+## 2. Who on X Layer got into fresh tokens earliest this week: 5 wallets, entries, average buy size
 
 *MCP / Claude Opus · 422 s · 21 turns · 18 tool calls*
 
@@ -60,7 +44,7 @@ Re-ranked strictly by top-3 first buyers, it isolated the one profile resembling
 
 ---
 
-## 4. OKX liquidations over the past week by day: which coins wipe longs vs shorts, in dollars
+## 3. OKX liquidations over the past week by day: which coins wipe longs vs shorts, in dollars
 
 *MCP / Claude Opus · 195 s · 8 turns · 6 tool calls*
 
@@ -70,7 +54,7 @@ Re-ranked strictly by top-3 first buyers, it isolated the one profile resembling
 
 ---
 
-## 5. How much volume passed on OKX in 24h for BTC, ETH and SOL? As a table
+## 4. How much volume passed on OKX in 24h for BTC, ETH and SOL? As a table
 
 *PIPELINE / glm-flash · 1 tool call*
 
@@ -80,7 +64,7 @@ $ETH $6.82B, $BTC $6.33B, $SOL $1.58B — total $14.73B (linear USDT swaps; sum 
 
 ---
 
-## 6. Top 10 coins on OKX by 24h volume with price change, in a table
+## 5. Top 10 coins on OKX by 24h volume with price change, in a table
 
 *PIPELINE / glm-flash · 1 tool call*
 
@@ -90,7 +74,7 @@ Full top-10 table ($ETH $6.75B +0.18% … $XPL $248M +3.43%), with observations:
 
 ---
 
-## 7. Top-10 coins on OKX by 24h open-interest growth: current OI, growth %, price change
+## 6. Top-10 coins on OKX by 24h open-interest growth: current OI, growth %, price change
 
 *PIPELINE / glm-flash · 6 turns (one query error self-recovered)*
 
@@ -100,7 +84,7 @@ Table led by $TMF +67.73% OI with −1.16% price (short accumulation signal); he
 
 ---
 
-## 8. Which coins on OKX collected the most long and short liquidations in 24h? Table with $ amounts
+## 7. Which coins on OKX collected the most long and short liquidations in 24h? Table with $ amounts
 
 *PIPELINE / glm-flash · 1 tool call*
 
@@ -110,7 +94,7 @@ Top-10 table ($ETH $8.29M total, $BTC $4.51M, $ZEC $3.17M, tokenized-stock $SNDK
 
 ---
 
-## 9. Compare X Layer vs Robinhood Chain activity over 24h: swaps, wallets, $ volume, top-3 tokens
+## 8. Compare X Layer vs Robinhood Chain activity over 24h: swaps, wallets, $ volume, top-3 tokens
 
 *MCP / Claude Opus · 641 s · 25 turns · 19 tool calls (incl. live multicall to both chains for symbols)*
 
@@ -127,5 +111,5 @@ Top-3 on X Layer = **tokenized stocks**: AAPLx $8.08M, TSLAx $2.75M, NVDAx $2.61
 ### What these sessions demonstrate
 
 - **Facts, not vibes**: every claim traces to tool calls over indexed data; derived numbers are flagged by the figure check.
-- **Self-skepticism**: example 3 demoted its own headline finding to "bot cluster" instead of selling it as alpha; example 9 refused a garbage price estimate.
+- **Self-skepticism**: example 2 demoted its own headline finding to "bot cluster" instead of selling it as alpha; example 8 refused a garbage price estimate.
 - **Depth on demand**: the same API served 1-call table lookups and 25-turn investigations — governed by `max_cost_usd`.

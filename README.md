@@ -92,7 +92,7 @@ msg = client.messages.create(
 print(msg.content[0].text)
 ```
 
-More runnable examples in [`examples/`](examples/); **nine real sessions with
+More runnable examples in [`examples/`](examples/); **eight real sessions with
 unedited answers — [SHOWCASE.md](SHOWCASE.md)** (deep research and fast tables,
 incl. the built-in figure check that flags any number not present in tool outputs).
 
